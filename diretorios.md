@@ -191,10 +191,3 @@ Vamos juntar tudo!
 6. Liste todo o conteúdo de `escola` usando um **caminho absoluto** (ex.: `ls ~/escola`).
 
 **Dica**: Use `mkdir`, `touch`, `cd` e `ls`. Se ficar preso, use `pwd` para verificar sua localização.
-
-## Perguntas de Reflexão
-1. Qual é a diferença entre um caminho absoluto e um caminho relativo?
-2. Por que o diretório home (~) é útil?
-3. Como o diretório superior (..) ajuda na navegação?
-4. O que acontece se você digitar `cd .`? Por quê?
-5. Como o comando `cd -` pode ser útil ao trabalhar com dois diretórios diferentes?
