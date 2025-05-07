@@ -5,7 +5,7 @@ Neste prática, você deverá navegar pela estrutura hierárquica de diretórios
 ## Objetivos
 - Compreender a estrutura hierárquica do sistema de arquivos do Linux.
 - Usar comandos básicos para navegar em diretórios e visualizar arquivos.
-- Aplicar os conceitos de diretório atual (.), diretório pai (..), diretório home (~) e diretório anterior (-).
+- Aplicar os conceitos de diretório atual (.), diretório superior (..), diretório home (~) e diretório anterior (-).
 
 ## Contexto: Sistema de Arquivos do Linux
 O sistema de arquivos do Linux é organizado como uma árvore, começando pelo **diretório raiz** (`/`). Todos os outros diretórios e arquivos se ramificam a partir daqui. Diretórios principais incluem:
@@ -16,7 +16,7 @@ O sistema de arquivos do Linux é organizado como uma árvore, começando pelo *
 
 ## Conceitos-Chave
 - **Diretório Atual (.)**: Refere-se ao diretório em que você está no momento.
-- **Diretório Pai (..)**: Refere-se ao diretório um nível acima do diretório atual.
+- **Diretório superior (..)**: Refere-se ao diretório um nível acima do diretório atual.
 - **Diretório Home (~)**: Seu diretório pessoal, geralmente `/home/user`.
 - **Diretório Anterior (-)**: Refere-se ao diretório em que você estava antes do último comando `cd`. O comando `cd -` volta para esse diretório.
 - **Caminho**: A localização de um arquivo ou diretório (ex.: `/home/user/documentos`).
@@ -101,7 +101,7 @@ Vamos adicionar algum conteúdo.
    ```
    Você deve ver `meu_arquivo.txt` e `subdiretorio`.
 
-### Passo 7: Explorar os Diretórios Atual e Pai
+### Passo 7: Explorar os Diretórios Atual e superior
 1. Use o **diretório atual (.)** para listar conteúdos:
    ```
    ls .
@@ -111,7 +111,7 @@ Vamos adicionar algum conteúdo.
    ```
    cd subdiretorio
    ```
-3. Use o **diretório pai (..)** para voltar:
+3. Use o **diretório superior (..)** para voltar:
    ```
    cd ..
    ```
@@ -195,6 +195,6 @@ Vamos juntar tudo!
 ## Perguntas de Reflexão
 1. Qual é a diferença entre um caminho absoluto e um caminho relativo?
 2. Por que o diretório home (~) é útil?
-3. Como o diretório pai (..) ajuda na navegação?
+3. Como o diretório superior (..) ajuda na navegação?
 4. O que acontece se você digitar `cd .`? Por quê?
 5. Como o comando `cd -` pode ser útil ao trabalhar com dois diretórios diferentes?
