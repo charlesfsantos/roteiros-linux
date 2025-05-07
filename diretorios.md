@@ -1,6 +1,6 @@
 # Prática Guiada: Navegando no Sistema de Arquivos do Linux
 
-Neste prática, você deverá navegar pela estrutura hierárquica de diretórios do Linux. Para isso, é necessário entender comandos e conceitos-chave como diretório atual (.), diretório pai (..), diretório home (~) e diretório anterior (-).
+Neste prática, você deverá navegar pela estrutura hierárquica de diretórios do Linux. Para isso, é necessário entender comandos e conceitos-chave como diretório atual (.), diretório superior (..), diretório home (~) e diretório anterior (-).
 
 ## Objetivos
 - Compreender a estrutura hierárquica do sistema de arquivos do Linux.
