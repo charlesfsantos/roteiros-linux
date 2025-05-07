@@ -182,7 +182,6 @@ Vamos criar um arquivo com algum conteúdo.
 **Experimente**: Crie outro arquivo chamado `notas.txt` usando `touch`, depois adicione texto com `echo "Minhas notas" > notas.txt`. Use `cat` para verificar.
 
 ### Passo 12: Desafio
-Vamos juntar tudo!
 1. A partir do diretório home (~), crie um diretório chamado `escola`.
 2. Dentro de `escola`, crie dois subdiretórios: `matematica` e `historia`.
 3. Em `matematica`, crie um arquivo chamado `tarefa.txt`.
