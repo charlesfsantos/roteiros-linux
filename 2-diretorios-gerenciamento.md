@@ -32,19 +32,19 @@ Você recebeu arquivos do grupo, mas eles estão bagunçados. Vamos criar uma pa
    ```
    pwd
    ```
-   Saída: `/home/usuario`.
-2. Crie uma pasta chamada `projeto_ciencias`:
+   Saída: `/home/user`.
+2. Crie uma pasta chamada `projeto_ciencias/`:
    ```
-   mkdir projeto_ciencias
+   mkdir projeto_ciencias/
    ```
 3. Entre na pasta:
    ```
-   cd projeto_ciencias
+   cd projeto_ciencias/
    ```
 
 ```mermaid
    flowchart TD
-   A[/home/usuario/] --> B[projeto_ciencias]
+   A[/home/user/] --> B[projeto_ciencias/]
 ```
 
 <!-- **Pergunta**: Por que criar uma pasta específica ajuda a manter o projeto organizado? -->
@@ -74,7 +74,7 @@ Seu grupo enviou três arquivos: anotações, um plano inicial e um rascunho de 
 
 ```mermaid
 flowchart TD
-    A["projeto_ciencias"] --> B["plano.txt
+    A["projeto_ciencias/"] --> B["plano.txt
     Apresentação sobre ecossistemas"] & C["anotacoes.txt"] & D["slides_rascunho.txt"]
 ```
 
@@ -103,13 +103,14 @@ O `plano.txt` é importante, então vamos criar um backup antes de editá-lo.
 
 ```mermaid
 flowchart TD
- subgraph Copy["Cópia"]
+ subgraph Copy["COPY"]
         B["plano.txt"]
         C["plano_backup.txt"]
   end
-    A["projeto_ciencias"] --> B & D["anotacoes.txt"] & E["slides_rascunho.txt"]
+    A["projeto_ciencias/"] --> B & D["anotacoes.txt"] & E["slides_rascunho.txt"]
     B --> C
 ```
+
 
 <!-- **Experimente**: Copie `anotacoes.txt` para `anotacoes_copia.txt` e use `cat` para verificar. -->
 
@@ -129,20 +130,21 @@ Os rascunhos devem ir para uma pasta separada.
    ```
    Saída: 
    ```
-   anotacoes.txt plano.txt plano_backup.txt rascunhos rascunhos_backup
+   anotacoes.txt plano.txt plano_backup.txt rascunhos rascunhos_backup slides_rascunho.txt
    ``` 
-
-**Diagrama**: O diagrama adiciona as pastas `rascunhos` e `rascunhos_backup`, com uma seta para `cp -r`.
 
 ```mermaid
 graph TD
-    A[projeto_ciencias] --> B[plano.txt]
+    A[projeto_ciencias/] --> B[plano.txt]
     A --> C[plano_backup.txt]
     A --> D[anotacoes.txt]
     A --> E[slides_rascunho.txt]
-    A --> F[rascunhos]
-    A --> G[rascunhos_backup]
-    F -->|cp -r| G
+    A --> F[rascunhos/]
+    A --> G[rascunhos_backup/]
+
+    style G fill:#FFCDD2
+    style G color:#000000
+
 ```
 
 <!-- **Pergunta**: Por que `-r` é necessário para copiar pastas? O que aconteceria sem ele? -->
@@ -162,22 +164,23 @@ Vamos mover `slides_rascunho.txt` para a pasta `rascunhos`.
    ```
    slides_rascunho.txt
    ```
-3. Volte para `projeto_ciencias`:
+3. Volte para `projeto_ciencias/`:
    ```
    cd ..
    ```
 
-**Diagrama**: O diagrama mostra `slides_rascunho.txt` dentro de `rascunhos`, com uma seta `mv` indicando a movimentação.
-
 ```mermaid
 graph TD
-    A[projeto_ciencias] --> B[plano.txt]
+    A[projeto_ciencias/] --> B[plano.txt]
     A --> C[plano_backup.txt]
     A --> D[anotacoes.txt]
-    A --> F[rascunhos]
-    A --> G[rascunhos_backup]
+    A --> F[rascunhos/]
+    A --> G[rascunhos_backup/]
     F --> H[slides_rascunho.txt]
-    D -->|mv| H
+
+    style H fill:#FFCDD2
+    style H color:#000000
+
 ```
 
 <!-- **Experimente**: Mova `anotacoes.txt` para `rascunhos` e liste o conteúdo de `rascunhos`. -->
@@ -192,24 +195,12 @@ O nome `plano_backup.txt` não é claro. Vamos renomeá-lo.
    ```
    ls
    ```
-   Saída: 
+   Saída deverá conter: 
    ```
    plano.txt plano_reserva.txt rascunhos rascunhos_backup
    ```
 
-**Diagrama**: O diagrama atualiza `plano_backup.txt` para `plano_reserva.txt`, com uma seta `mv`.
-
-```mermaid
-graph TD
-    A[projeto_ciencias] --> B[plano.txt]
-    A --> C[plano_reserva.txt]
-    A --> F[rascunhos]
-    A --> G[rascunhos_backup]
-    F --> H[slides_rascunho.txt]
-    B -->|mv| C
-```
-
-**Pergunta**: Como `mv` funciona para renomear? Como é diferente de mover para uma pasta?
+<!-- **Pergunta**: Como `mv` funciona para renomear? Como é diferente de mover para uma pasta? -->
 
 ## Passo 7: Remover Arquivos com `rm`
 Decidimos que `plano_reserva.txt` não é necessário, pois temos o original.
@@ -231,9 +222,10 @@ Decidimos que `plano_reserva.txt` não é necessário, pois temos o original.
 
 ```mermaid
 graph TD
-    A[projeto_ciencias] --> B[plano.txt]
-    A --> F[rascunhos]
-    A --> G[rascunhos_backup]
+    A[projeto_ciencias/] --> B[plano.txt]
+    A --> C[anotacoes.txt]
+    A --> F[rascunhos/]
+    A --> G[rascunhos_backup/]
     F --> H[slides_rascunho.txt]
     I[plano_reserva.txt] -->|rm -i| X[Excluído]
 ```
@@ -256,14 +248,13 @@ A pasta `rascunhos_backup` está vazia e não precisamos dela.
    plano.txt rascunhos
    ```
 
-**Diagrama**: O diagrama remove `rascunhos_backup`, com uma nota para `rm -ri`.
 
 ```mermaid
 graph TD
-    A[projeto_ciencias] --> B[plano.txt]
-    A --> F[rascunhos]
+    A[projeto_ciencias/] --> B[plano.txt]
+    A --> F[rascunhos/]
     F --> H[slides_rascunho.txt]
-    G[rascunhos_backup] -->|rm -ri| X[Excluído]
+    G[rascunhos_backup/] -->|rm -ri| X[Excluído]
 ```
 
 <!-- **Pergunta**: Por que `-r` é necessário para excluir pastas? -->
@@ -289,21 +280,21 @@ Vamos adicionar um novo rascunho e fazer um backup fora do projeto.
 
 ```mermaid
 graph TD
-    A[/home/usuario] --> B[projeto_ciencias]
+    A(/home/user/) --> B(projeto_ciencias/)
     A --> I[plano_copia.txt]
     B --> C[plano.txt]
-    B --> F[rascunhos]
+    B --> F(/rascunhos/)
     F --> H[slides_rascunho.txt]
     F --> J[novo_rascunho.txt]
     C -->|cp| I
     K[touch] --> J
 ```
 
-<!-- **Experimente**: Mova `plano_copia.txt` de volta para `projeto_ciencias` com `mv` e um caminho relativo. -->
+<!-- **Experimente**: Mova `plano_copia.txt` de volta para `projeto_ciencias/` com `mv` e um caminho relativo. -->
 
 ### Passo 10: Desafio
 O prazo da apresentação está chegando! Organize o projeto para a entrega final.
-1. Em `projeto_ciencias`, crie duas pastas: `final` (para a versão pronta) e `temporario` (para rascunhos).
+1. Em `projeto_ciencias/`, crie duas pastas: `final` (para a versão pronta) e `temporario` (para rascunhos).
 2. Mova `plano.txt` para `final`:
    ```
    mv plano.txt final/
@@ -320,7 +311,7 @@ O prazo da apresentação está chegando! Organize o projeto para a entrega fina
    ```
    mv temporario arquivos_temp
    ```
-6. Liste `projeto_ciencias`:
+6. Liste `projeto_ciencias/`:
    ```
    ls
    ```
@@ -329,29 +320,6 @@ O prazo da apresentação está chegando! Organize o projeto para a entrega fina
    arquivos_temp final rascunhos
    ```
 
-**Diagrama**: O diagrama final mostra a estrutura organizada de `projeto_ciencias`.
-
-```mermaid
-graph TD
-    A[projeto_ciencias] --> B[final]
-    A --> C[rascunhos]
-    A --> D[arquivos_temp]
-    B --> E[plano.txt]
-    C --> F[slides_rascunho.txt]
-    C --> G[novo_rascunho.txt]
-    D --> H[rascunhos]
-    H --> I[slides_rascunho.txt]
-    J[novo_rascunho.txt] -->|rm -i| X[Excluído]
-    K[temporario] -->|mv| D
-    L[plano.txt] -->|mv| E
-    C -->|cp -r| H
-```
+**Diagrama**: O diagrama final mostra a estrutura organizada de `projeto_ciencias/`.
 
 **Dica**: Use `pwd` se estiver perdido.
-
-## Perguntas de Reflexão
-1. Como `cp` e `mv` ajudaram a organizar o projeto de ciências? Dê exemplos do Desafio.
-2. Por que usar `rm -i` foi importante ao excluir arquivos como `novo_rascunho.txt`?
-3. No Passo 10, como mover `plano.txt` para `final` tornou o projeto mais claro?
-4. Qual é a diferença entre usar `mv` para mover e para renomear? Use exemplos do Passo 6 e Passo 10.
-5. Por que caminhos relativos foram úteis no Passo 9 e no Desafio?
