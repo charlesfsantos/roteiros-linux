@@ -45,8 +45,8 @@ Você recebeu arquivos do grupo, mas eles estão bagunçados. Vamos criar uma pa
 **Diagrama**: O diagrama abaixo mostra a estrutura após criar `projeto_ciencias`. Ele representa `/home/usuario` com a nova pasta vazia.
 
 ```mermaid
-graph TD
-    A[/home/usuario] --> B[projeto_ciencias]
+   flowchart TD
+   A[/home/usuario/] --> B[projeto_ciencias]
 ```
 
 <!-- **Pergunta**: Por que criar uma pasta específica ajuda a manter o projeto organizado? -->
@@ -77,10 +77,9 @@ Seu grupo enviou três arquivos: anotações, um plano inicial e um rascunho de 
 **Diagrama**: O diagrama mostra `projeto_ciencias` com três arquivos, destacando `plano.txt` com seu conteúdo.
 
 ```mermaid
-graph TD
-    A[projeto_ciencias] --> B[plano.txt<br>"Apresentação sobre ecossistemas"]
-    A --> C[anotacoes.txt]
-    A --> D[slides_rascunho.txt]
+flowchart TD
+    A["projeto_ciencias"] --> B["plano.txt
+    Apresentação sobre ecossistemas"] & C["anotacoes.txt"] & D["slides_rascunho.txt"]
 ```
 
 <!-- **Pergunta**: O que `touch` faz? Como `echo` adiciona texto a um arquivo? -->
