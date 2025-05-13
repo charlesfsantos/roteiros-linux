@@ -322,4 +322,4 @@ O prazo da apresentação está chegando! Organize o projeto para a entrega fina
 
 **Diagrama**: O diagrama final mostra a estrutura organizada de `projeto_ciencias/`.
 
-**Dica**: Use `pwd` se estiver perdido.
+**Dica**: Use `pwd` se estiver perdido.x
