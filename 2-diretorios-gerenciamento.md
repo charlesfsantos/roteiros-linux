@@ -42,8 +42,6 @@ Você recebeu arquivos do grupo, mas eles estão bagunçados. Vamos criar uma pa
    cd projeto_ciencias
    ```
 
-**Diagrama**: O diagrama abaixo mostra a estrutura após criar `projeto_ciencias`. Ele representa `/home/usuario` com a nova pasta vazia.
-
 ```mermaid
    flowchart TD
    A[/home/usuario/] --> B[projeto_ciencias]
@@ -73,8 +71,6 @@ Seu grupo enviou três arquivos: anotações, um plano inicial e um rascunho de 
    ```
    cat plano.txt
    ```
-
-**Diagrama**: O diagrama mostra `projeto_ciencias` com três arquivos, destacando `plano.txt` com seu conteúdo.
 
 ```mermaid
 flowchart TD
@@ -106,12 +102,13 @@ O `plano.txt` é importante, então vamos criar um backup antes de editá-lo.
 **Diagrama**: O diagrama mostra `plano_backup.txt` como uma cópia de `plano.txt`, com uma seta indicando a ação `cp`.
 
 ```mermaid
-graph TD
-    A[projeto_ciencias] --> B[plano.txt<br>"Apresentação sobre ecossistemas"]
-    A --> C[plano_backup.txt<br>"Apresentação sobre ecossistemas"]
-    A --> D[anotacoes.txt]
-    A --> E[slides_rascunho.txt]
-    B -->|cp| C
+flowchart TD
+ subgraph Copy["Cópia"]
+        B["plano.txt"]
+        C["plano_backup.txt"]
+  end
+    A["projeto_ciencias"] --> B & D["anotacoes.txt"] & E["slides_rascunho.txt"]
+    B --> C
 ```
 
 <!-- **Experimente**: Copie `anotacoes.txt` para `anotacoes_copia.txt` e use `cat` para verificar. -->
