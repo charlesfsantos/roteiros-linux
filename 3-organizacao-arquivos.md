@@ -7,6 +7,16 @@ Você lidera um festival de tecnologia em uma escola secundária, com equipes ap
 
 Para obter os arquivos, execute a seguinte sequência de comandos:
 
+1. ``` apt install git ```
+2. ``` git clone --no-checkout https://github.com/charlesfsantos/roteiros-linux.git ```
+3. ``` cd roteiros-linux/ ```
+4. ``` git sparse-checkout init ```
+5. ``` git sparse-checkout set 3-festival-tecnologia ```
+6. ``` git checkout main ```
+7. ``` mv 3-festival-tecnologia/ ~/festival-tecnologia```
+8. ``` cd ~ ```
+
+
 ## Desafio
 1. Criar uma estrutura de diretórios para:
   - Planos de projetos (ex.: `plano_robotica.txt`, `plano_app.txt`).
@@ -34,4 +44,3 @@ Para obter os arquivos, execute a seguinte sequência de comandos:
 ## Entrega
 - Diretório `/home/usuario/festival_tecnologia` com estrutura clara, arquivos editados, backups e `resumo_festival.txt` detalhando escolhas e comandos
 - `README.txt` com guia para acessar materiais.
-- Estrutura intuitiva para juízes e participantes.
