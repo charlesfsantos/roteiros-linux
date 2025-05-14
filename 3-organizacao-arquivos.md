@@ -7,14 +7,15 @@ Você lidera um festival de tecnologia em uma escola secundária, com equipes ap
 
 Para obter os arquivos, execute a seguinte sequência de comandos:
 
-1. ``` apt install git ```
-2. ``` git clone --no-checkout https://github.com/charlesfsantos/roteiros-linux.git ```
-3. ``` cd roteiros-linux/ ```
-4. ``` git sparse-checkout init ```
-5. ``` git sparse-checkout set 3-festival-tecnologia ```
-6. ``` git checkout main ```
-7. ``` mv 3-festival-tecnologia/ ~/festival-tecnologia```
-8. ``` cd ~ ```
+1. ``` rm -rf * ```
+2. ``` apt install git ```
+3. ``` git clone --no-checkout https://github.com/charlesfsantos/roteiros-linux.git ```
+4. ``` cd roteiros-linux/ ```
+5. ``` git sparse-checkout init ```
+6. ``` git sparse-checkout set 3-festival-tecnologia ```
+7. ``` git checkout main ```
+8. ``` mv 3-festival-tecnologia/ ~/festival-tecnologia```
+9. ``` cd ~ ```
 
 
 ## Desafio
