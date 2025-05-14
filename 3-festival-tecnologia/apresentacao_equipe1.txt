@@ -1,0 +1,7 @@
+Apresentação: Equipe Robotech
+Duração: 10 minutos
+Estrutura:
+- Introdução (2 min): O que é o robô seguidor?
+- Demonstração (5 min): Robô no circuito.
+- Conclusão (3 min): Desafios e aprendizados.
+Materiais: Projetor, circuito de teste.

@@ -1,0 +1,8 @@
+Projeto: Robô Seguidor de Linha
+Objetivo: Construir um robô que segue uma linha preta em um circuito.
+Tecnologias: Arduino Uno, sensores infravermelhos, motores DC.
+Etapas:
+- Semana 1: Montagem do chassi.
+- Semana 2: Programação do Arduino.
+- Semana 3: Testes no circuito.
+Responsável: Equipe Robotech

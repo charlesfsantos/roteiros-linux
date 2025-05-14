@@ -1,0 +1,10 @@
+Relatório: Projeto Aplicativo Ambiental
+Equipe: CodeGreen
+Objetivo: Monitorar qualidade do ar em tempo real.
+Resultados:
+- Dados coletados: 100 leituras diárias.
+- Interface: 95% de aprovação em testes.
+Desafios:
+- Latência da API.
+Lições:
+- Otimizar chamadas de rede.

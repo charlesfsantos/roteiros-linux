@@ -1,0 +1,18 @@
+Resumo: Festival de Tecnologia Escolar
+Estrutura:
+- /planos/: Planos de projetos (2 arquivos).
+- /codigos/: Códigos-fonte (2 arquivos, 1 backup).
+- /apresentacoes/: Apresentações (2 arquivos, 2 backups).
+- /cronogramas/: Cronogramas (2 arquivos).
+- /relatorios/: Relatórios (2 arquivos, 1 backup).
+Comandos Usados:
+- mkdir planos codigos apresentacoes cronogramas relatorios
+- touch plano_robotica.txt apresentacao_equipe1.txt ...
+- mv plano_robotica.txt planos/
+- cp apresentacao_equipe1.txt apresentacao_equipe1_backup.txt
+- rm rascunho_temp.txt
+- vim plano_robotica.txt (editar com :w, :q, :%s/erro/correção/g)
+Justificativa:
+- Separação por tipo (planos, códigos) facilita acesso.
+- Backups protegem apresentações e relatórios críticos.
+- Formatação em tabelas nos cronogramas melhora legibilidade.

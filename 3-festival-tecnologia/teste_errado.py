@@ -1,0 +1,1 @@
+print(erro  # Código com erro de sintaxe

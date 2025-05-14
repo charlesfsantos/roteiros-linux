@@ -1,0 +1,10 @@
+Relatório: Projeto Robótica
+Equipe: Robotech
+Objetivo: Robô seguidor de linha funcional.
+Resultados:
+- Tempo médio de conclusão do circuito: 45 segundos.
+- Precisão: 90% em 10 testes.
+Desafios:
+- Calibragem de sensores.
+Lições:
+- Importância de testes iterativos.

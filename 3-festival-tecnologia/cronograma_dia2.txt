@@ -1,0 +1,6 @@
+Cronograma: Dia 2 - Festival de Tecnologia
+| Horário  | Atividade                     | Equipe       |
+|----------|------------------------------|--------------|
+| 09:00-10:00 | Workshop de IA            | Convidado    |
+| 10:00-11:00 | Apresentação CodeGreen    | CodeGreen    |
+| 11:00-12:00 | Encerramento e Premiação  | Organização  |

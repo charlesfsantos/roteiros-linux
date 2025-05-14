@@ -1,0 +1,6 @@
+Cronograma: Dia 1 - Festival de Tecnologia
+| Horário  | Atividade                     | Equipe       |
+|----------|------------------------------|--------------|
+| 09:00-10:00 | Abertura e Boas-vindas    | Organização  |
+| 10:00-11:00 | Apresentação Robotech     | Robotech     |
+| 11:00-12:00 | Demonstração CodeGreen    | CodeGreen    |

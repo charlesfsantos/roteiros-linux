@@ -1,0 +1,8 @@
+Projeto: Aplicativo de Monitoramento Ambiental
+Objetivo: Desenvolver um app para monitorar qualidade do ar.
+Tecnologias: Flutter, API de sensores IoT.
+Etapas:
+- Semana 1: Design da interface.
+- Semana 2: Integração com API.
+- Semana 3: Testes beta.
+Responsável: Equipe CodeGreen
