@@ -1,4 +1,3 @@
-```markdown
 # Prática de Navegação no Sistema de Arquivos do Linux
 
 **Objetivo**: Familiarizar-se com a hierarquia do sistema de arquivos do Linux, navegando por diretórios, explorando diretórios importantes do sistema e usando comandos comuns como `cd`, `ls`, `pwd` e `tree`.
@@ -112,5 +111,3 @@
      cd ../..
      ```
    - Confirme com `ls` que `dir1` existe.
-
-```
