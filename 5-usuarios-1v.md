@@ -80,7 +80,7 @@ Crie grupos `robotica`, `app`, `multimidia`, e `professores` para gerenciar perm
 Crie contas para:
 - **Robótica**: Estudantes `leticia`, `juan`; professor `prof_joao`.
 - **App**: Estudantes `clara`, `juliana`.
-- **Multimídia**: Estudantes `naiara`, `juan`.
+- **Multimídia**: Estudantes `naiara`, `isaac`.
 
 Use `adduser` sem grupo primário, criando automaticamente um diretório home. Adicione usuários aos grupos com `gpasswd` and defina o grupo primário com `usermod`. Senhas: **expotec2025** para estudantes, **ifrn2025** para `prof_joao`. Grupos não terão senhas nesta etapa (sem `newgrp`).
 
@@ -198,18 +198,18 @@ Use `adduser` sem grupo primário, criando automaticamente um diretório home. A
     usermod -g multimidia naiara
     ```
     ```bash
-    adduser --uid 1206 juan
+    adduser --uid 1206 isaac
     ```
     - Senha: **expotec2025**.
     ```bash
-    gpasswd -a juan multimidia
-    usermod -g multimidia juan
+    gpasswd -a isaac multimidia
+    usermod -g multimidia isaac
     ```
-    - **Explicação**: Cria `naiara` e `juan`, adiciona a `multimidia`, define `multimidia` como grupo primário.
+    - **Explicação**: Cria `naiara` e `isaac`, adiciona a `multimidia`, define `multimidia` como grupo primário.
 
 12. Verifique todas as contas em `/etc/passwd`:
     ```bash
-    cat /etc/passwd | grep -E 'leticia|juan|prof_joao|clara|juliana|naiara|juan'
+    cat /etc/passwd | grep -E 'leticia|juan|prof_joao|clara|juliana|naiara|isaac'
     ```
     **Saída esperada** (exemplo):
     ```
@@ -219,7 +219,7 @@ Use `adduser` sem grupo primário, criando automaticamente um diretório home. A
     clara:x:1203:1101:clara:/home/clara:/bin/bash
     juliana:x:1204:1101:juliana:/home/juliana:/bin/bash
     naiara:x:1205:1102:naiara:/home/naiara:/bin/bash
-    juan:x:1206:1102:juan:/home/juan:/bin/bash
+    isaac:x:1206:1102:isaac:/home/isaac:/bin/bash
     ```
     - **Explicação**: Confirma a criação de usuários com UIDs e GIDs corretos.
 
@@ -237,7 +237,7 @@ Use `adduser` sem grupo primário, criando automaticamente um diretório home. A
     ```
     robotica:x:1100:leticia,juan
     app:x:1101:clara,juliana
-    multimidia:x:1102:naiara,juan
+    multimidia:x:1102:naiara,isaac
     professores:x:1103:prof_joao
     ```
     - **Explicação**: Confirma que usuários estão nos grupos corretos.
