@@ -307,6 +307,8 @@ Ajuste `umask` para novos arquivos.
 
 **Pergunta**: Seguindo esta lógica, qual `umask` resulta em permissões `660` para novos arquivos?
 
+---
+
 ### Passo 10: Testando Permissões com newgrp
 Use `newgrp` para alternar o grupo primário e testar permissões.
 
