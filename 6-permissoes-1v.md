@@ -296,6 +296,7 @@ Ajuste `umask` para novos arquivos.
 2. Verifique:
    ```bash
    ls -l /expotec2025/app/teste.txt
+   exit
    ```
    **Saída esperada**:
    ```
@@ -305,6 +306,64 @@ Ajuste `umask` para novos arquivos.
 **Explicação**: `umask 027` subtrai permissões de novos arquivos, resultando em `640` (`rw-r-----`).
 
 **Pergunta**: Seguindo esta lógica, qual `umask` resulta em permissões `660` para novos arquivos?
+
+### Passo 10: Testando Permissões com newgrp
+Use `newgrp` para alternar o grupo primário e testar permissões.
+
+**Tarefa**:
+1. **Preparação**: Adicione `leticia` ao grupo `multimidia` como grupo secundário (assume `leticia` já está no grupo `robotica` como primário):
+   ```bash
+   usermod -aG multimidia leticia
+   ```
+2. Como `leticia`, verifique grupos:
+   ```bash
+   su - leticia
+   groups
+   ```
+   **Saída esperada** (exemplo):
+   ```
+   robotica multimidia
+   ```
+3. Tente criar um arquivo em `/expotec2025/multimidia` (grupo primário `robotica`):
+   ```bash
+   touch /expotec2025/multimidia/teste_video.txt
+   ```
+   **Saída esperada**: `Permission denied` (somente `multimidia` tem `rwx` via `775`).
+4. Use `newgrp` para mudar o grupo primário para `multimidia`:
+   ```bash
+   newgrp multimidia
+   ```
+5. Crie um arquivo:
+   ```bash
+   touch /expotec2025/multimidia/teste_video.txt
+   ```
+6. Verifique:
+   ```bash
+   ls -l /expotec2025/multimidia/teste_video.txt
+   ```
+   **Saída esperada**:
+   ```
+   -rw-rw-r-- 1 leticia multimidia 0 Jun 11 2025 teste_video.txt
+   ```
+7. Como `leticia`, tente novamente em `/expotec2025/robotica` (grupo `robotica`):
+   ```bash
+   touch /expotec2025/robotica/teste_robotica.txt
+   ```
+   **Saída esperada**: `Permission denied` (grupo primário atual é `multimidia`).
+8. Volte ao grupo `robotica`:
+   ```bash
+   exit
+   touch /expotec2025/robotica/teste_robotica.txt
+   ```
+   **Saída esperada**:
+   ```
+   -rw-rw-r-- 1 leticia robotica 0 Jun 11 2025 teste_robotica.txt
+   ```
+
+**Explicação**: `newgrp` altera o grupo primário na sessão atual, afetando permissões de acesso e grupo de novos arquivos. `leticia` só cria arquivos em `/expotec2025/multimidia` com grupo primário `multimidia`. O arquivo herda o grupo da sessão, mas `setgid` em `/expotec2025/robotica` garante herança de `robotica`.
+
+**Pergunta**: Por que `leticia` precisou usar `newgrp multimidia` para criar `teste_video.txt`?
+
 
 ---
 
