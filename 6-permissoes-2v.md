@@ -264,16 +264,16 @@ Use modo octal.
 1. Como `mikael`, crie um arquivo:
    ```bash
    su - mikael
-   touch /expotec2025/app/config.txt
-   chmod 640 /expotec2025/app/config.txt
+   touch /expotec2025/app/config.json
+   chmod 640 /expotec2025/app/config.json
    ```
 2. Verifique:
    ```bash
-   ls -l /expotec2025/app/config.txt
+   ls -l /expotec2025/app/config.json
    ```
    **Saída esperada**:
    ```
-   -rw-r----- 1 mikael app 0 Jun 11 2025 config.txt
+   -rw-r----- 1 mikael app 0 Jun 11 2025 config.json
    ```
 
 **Explicação**: `640` = `rw-r-----` (dono: `rw`; grupo: `r`; outros: nenhum).
