@@ -140,7 +140,7 @@ Teste permissões em arquivos.
    ```
    **Saída esperada**:
    ```
-   -rw-rw---- 1 samuel multimidia 17 Jun 11 2025 video.txt
+   -rw-r----- 1 samuel multimidia 17 Jun 11 2025 video.txt
    ```
 3. Como `fran`, tente ler:
    ```bash
@@ -149,9 +149,9 @@ Teste permissões em arquivos.
    cat /expotec2025/multimidia/video.txt
    exit
    ```
-   **Saída esperada**: `Permission denied`.
+   **Saída esperada**: `Video promocional`.
 
-**Explicação**: `660` (`rw-rw----`) restringe acesso ao dono (`samuel`) e grupo (`multimidia`). `fran` acessa o diretório (`775`), mas não o arquivo.
+**Explicação**: `640` (`rw-r-----`) restringe acesso ao dono (`samuel`) e grupo (`multimidia`). Se a saída foi bem sucedida,`fran` faz parte do grupo multimídia.
 
 **Desafio**: Como `alif`, crie `/expotec2025/app/config.txt` com permissões `640`. Verifique.
 
