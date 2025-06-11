@@ -231,7 +231,7 @@ Use `adduser` sem grupo primário, criando automaticamente um diretório home. A
 
 14. Verifique grupos em `/etc/group`:
     ```bash
-    tail -4 /etc/group
+    tail -11 /etc/group | head 4
     ```
     **Saída esperada** (exemplo):
     ```
