@@ -71,7 +71,7 @@ Crie grupos `robotica`, `app`, `multimidia`, e `professores` para gerenciar perm
    robotica:x:1100:
    app:x:1101:
    multimidia:x:1102:
-   professores:x:1103:
+   professores:x:1001:
    ```
 
 **Explicação**: `addgroup` cria grupos, atualizando `/etc/group`. O `--gid` define IDs únicos. `/etc/group` lista nome, senha (`x` para `/etc/gshadow`), GID, e membros.
@@ -90,6 +90,8 @@ Use `adduser` sem grupo primário, criando automaticamente um diretório home. A
    adduser --uid 1201 leticia
    ```
    - Senha: **expotec2025**.
+   - Para todas as informações solicitadas ("Nome Completo", "Número da Sala" etc.) deixe o campo vazio e clique `Enter`.
+   - Responda a solicitação final indicada ("A informação está correta?").
    - **Explicação**: `adduser` cria `leticia`, seu diretório home (`/home/leticia`), e um grupo padrão (e.g., `leticia` ou `users`). Cada usuário tem um **UID** (ID único, aqui 1201) e um **GID padrão** (grupo primário, definido em `/etc/passwd`), que determina o grupo de novos arquivos. Adiciona entradas em `/etc/passwd` (dados do usuário) e `/etc/shadow` (senha criptografada).
 2. Verifique o GID inicial de `leticia`:
    ```bash
@@ -97,9 +99,9 @@ Use `adduser` sem grupo primário, criando automaticamente um diretório home. A
    ```
    **Saída esperada** (exemplo):
    ```
-   uid=1201(leticia) gid=1201(leticia) groups=1201(leticia)
+   uid=1201(leticia) gid=1201(leticia) groups=1201(leticia),100(users)
    ```
-   - **Explicação**: O `id` mostra o UID (1201), o GID primário (1201, grupo `leticia`), e grupos suplementares (atualmente apenas `leticia`). O GID primário é o grupo padrão criado por `adduser`.
+   - **Explicação**: O `id` mostra o UID (1201), o GID primário (1201, grupo `leticia`), e grupos suplementares (atualmente apenas `leticia`). O GID primário é o grupo padrão criado por `adduser` que possui o mesmo nome do usuário. Assim como neste exemplo, todas as contas de usuário são adicionadas ao grupo `users`.
 3. Adicione `leticia` ao grupo `robotica`:
    ```bash
    gpasswd -a leticia robotica
@@ -134,14 +136,14 @@ Use `adduser` sem grupo primário, criando automaticamente um diretório home. A
    ```
    **Saída esperada** (exemplo):
    ```
-   leticia:x:1201:1100:leticia:/home/leticia:/bin/bash
+   leticia:x:1201:1100:,,,:/home/leticia:/bin/bash
    ```
    - **Explicação dos campos**:
      - **leticia**: Nome do usuário (login).
      - **x**: Placeholder para senha (em `/etc/shadow`).
      - **1201**: UID (ID único).
      - **1100**: GID (grupo primário, `robotica`).
-     - **leticia**: GECOS (nome completo, editável).
+     - **,,,**: GECOS (informações adicionais sobre o usuário), vazio.
      - **/home/leticia**: Diretório home.
      - **/bin/bash**: Shell padrão.
 
@@ -209,11 +211,11 @@ Use `adduser` sem grupo primário, criando automaticamente um diretório home. A
 
 12. Verifique todas as contas em `/etc/passwd`:
     ```bash
-    cat /etc/passwd | grep -E 'leticia|juan|prof_joao|clara|juliana|naiara|isaac'
+    tail -7 /etc/passwd
     ```
     **Saída esperada** (exemplo):
     ```
-    prof_joao:x:1200:1103:Professor Joao:/home/prof_joao:/bin/bash
+    prof_joao:x:1200:1001:Professor Joao:/home/prof_joao:/bin/bash
     leticia:x:1201:1100:leticia:/home/leticia:/bin/bash
     juan:x:1202:1100:juan:/home/juan:/bin/bash
     clara:x:1203:1101:clara:/home/clara:/bin/bash
@@ -231,20 +233,20 @@ Use `adduser` sem grupo primário, criando automaticamente um diretório home. A
 
 14. Verifique grupos em `/etc/group`:
     ```bash
-    tail -4 /etc/group
+    tail -1 /etc/group | head -4
     ```
     **Saída esperada** (exemplo):
     ```
     robotica:x:1100:leticia,juan
     app:x:1101:clara,juliana
     multimidia:x:1102:naiara,isaac
-    professores:x:1103:prof_joao
+    professores:x:1001:prof_joao
     ```
     - **Explicação**: Confirma que usuários estão nos grupos corretos.
 
-**Explicação (Resumo)**: Cada usuário tem um UID e um GID primário, definido em `/etc/passwd`. O `adduser` cria usuários com um grupo padrão, `gpasswd -a` adiciona a grupos suplementares, e `usermod -g` altera o GID primário, atualizando `/etc/passwd`, `/etc/shadow`, e `/etc/group`. A verificação de `leticia` com `id` e `/etc/passwd` demonstra essas mudanças.
+**Explicação (Resumo)**: O `adduser` cria usuários com um grupo padrão, `gpasswd -a` adiciona um usuário a grupos suplementares, e, por fim, `usermod -g` altera o o grupo padrão definido pelo `adduser`. Como resultado, os arquivos `/etc/passwd`, `/etc/shadow`, e `/etc/group` são atualizados. A verificação de `leticia` com `id` e `/etc/passwd` demonstra essas mudanças.
 
-**Desafio**:
+**Importante**:
 - Compare `id leticia` antes e depois de `usermod -g robotica leticia`.
   - **Dica**: O GID primário muda de `leticia` (1201) para `robotica` (1100).
 
@@ -269,26 +271,26 @@ A equipe `robotica` acessará arquivos da `multimidia`. O `prof_joao` será adic
    id juan
    id prof_joao
    ```
-   **Saída esperada** (exemplo):
+   **Saída esperada**:
    ```
-   uid=1201(leticia) gid=1100(robotica) groups=1100(robotica),1102(multimidia)
-   uid=1202(juan) gid=1100(robotica) groups=1100(robotica),1102(multimidia)
-   uid=1200(prof_joao) gid=1103(professores) groups=1103(professores),1100(robotica)
+   uid=1201(leticia) gid=1100(robotica) groups=1100(robotica),100(users),1102(multimidia)
+   uid=1202(juan) gid=1100(robotica) groups=1100(robotica),100(users),1102(multimidia)
+   uid=1200(prof_joao) gid=1001(professores) groups=1001(professores),100(users),1100(robotica)
    ```
 4. Confirme grupos de `leticia`:
    ```bash
    groups leticia
    ```
-   **Saída esperada**: `robotica multimidia`.
+   **Saída esperada**: `robotica users multimidia`.
 
-**Explicação**: `gpasswd -a` adiciona a grupos suplementares, atualizando `/etc/group`. O `id` mostra UID, GID, e grupos; `groups` lista grupos.
+**Explicação**: `gpasswd -a` adiciona a grupos suplementares, atualizando `/etc/group`. O `id` mostra UID, GID, e grupos; `groups` lista apenas grupos.
 
 **Desafio**:
 - Verifique `multimidia` em `/etc/group`:
   ```bash
   grep multimidia /etc/group
   ```
-  **Saída esperada**: `multimidia:x:1102:leticia,juan`.
+  **Saída esperada**: `multimidia:x:1102:naiara,isaac,leticia,juan`.
 
 ---
 
@@ -325,11 +327,13 @@ Configure uma senha para `professores` e teste `newgrp`. Altere a senha de `leti
    grep leticia /etc/shadow
    ```
 
-**Explicação**: `gpasswd` define senha em `/etc/gshadow`. O `newgrp` altera GID efetivo. O `passwd` atualiza `/etc/shadow`.
+**Explicação**: `gpasswd` define senha do grupo em `/etc/gshadow`. O `newgrp` cria uma nova sessão do bash alterando GID efetivo temporariamente. Ao sair da sessão (`exit`), a alteração é revertida. O `passwd` atualiza a senha do usuário em `/etc/shadow`.
 
 **Desafio**:
-- Por que `/etc/gshadow` pode ter `!` ou vazio?
-  - **Dica**: Grupo bloqueado ou sem senha.
+- Verifique, em `/etc/gshadow`, por pontos de exclamação `!` no lugar das senhas. Você consegue verificar isso em quais grupos criados? Por que isto acontece?
+  - **Resposta**: Grupo bloqueado ou sem senha.
+
+**Pesquise**: Você consegue verificar grupos onde, no lugar de uma senha, existe um asterisco `*`? Por que isto acontece?
 
 ---
 
@@ -357,7 +361,7 @@ O `prof_joao` precisa de privilégios.
    exit
    ```
 
-**Explicação**: O grupo `sudo` concede privilégios. O `sudo` executa como `root`.
+**Explicação**: O grupo `sudo` concede privilégios. O `sudo` executa o comando `whoami` como `root`.
 
 ---
 
@@ -365,33 +369,35 @@ O `prof_joao` precisa de privilégios.
 Audite contas e grupos.
 
 **Tarefa**:
-1. Liste usuários logados:
+1. Vá ao `tty2` (Alt+F2) e realize o login como `leticia`. Então, volte ao tty1 (Alt+F1).
+2. Liste usuários logados:
    ```bash
    users
    ```
-2. Verifique usuário atual:
+   Saída esperada: `leticia root`
+3. Verifique usuário atual:
    ```bash
    logname
    ```
-3. Liste grupos:
+   Saída esperada: `leticia`
+4. Liste todos os grupos do sistema sem ir direto ao arquivo:
    ```bash
    getent group
    ```
-4. Verifique `/etc/passwd` e `/etc/shadow`:
+5. Verifique a integridade `/etc/passwd` e `/etc/shadow`:
    ```bash
    pwck
    ```
-5. Verifique `/etc/group` e `/etc/gshadow`:
+   A saída pode demonstrar alguns erros em usuários especiais do sistema. Nenhuma ação é necessária.
+6. Verifique a integridade de `/etc/group` e `/etc/gshadow`:
    ```bash
    grpck
    ```
 
-**Explicação**: `users` mostra logins, `logname` a sessão original, `getent group` lista grupos. `pwck` e `grpck` verificam inconsistências.
+**Explicação**: `users` mostra quem está logado na máquina, `logname` o nome do usuário da sessão atual, `getent group` lista os grupos. `pwck` e `grpck` verificam inconsistências nos arquivos correspondentes.
 
 **Desafio**:
 - Compare `id clara` e `groups clara`.
   - **Dica**: `id` mostra UID, GID, grupos suplementares.
 
 ---
-
-**Parabéns!** Você gerenciou o servidor da Expotec 2025 com sucesso!
