@@ -213,7 +213,7 @@ read -p "Diretório: " DIR
 
 if [ ! -d "$DIR" ]
 then
-    echo "Criando diretório home..."
+    echo "Criando diretório..."
     mkdir "$DIR"
 else
     echo "Diretório $DIR já existe."
