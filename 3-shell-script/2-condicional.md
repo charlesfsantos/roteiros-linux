@@ -265,7 +265,7 @@ fi
 
 O comando `lsof` lista os arquivos em uso no sistema operacional. Ao mesmo tempo, o comando identifica qual usuário está realizando operações sobre o arquivo em uso. 
 
-Para testar o script, abra um novo terminal (ex. `Alt + F2`) e abra algum arquivo em `~/3-shell-script/exercicios/condicional` com o comando `vim`. Em seguida, volte ao terminal anterior (ex. `Alt + F1`), conceda permissão de execução ao arquivo `uso_arquivo.sh`, execute-o e forneça o nome do arquivo que foi aberto no outro terminal. Verifique o retorno do script. 
+Para testar o script, abra um novo terminal (ex. `Alt + F2`) e abra algum arquivo em `~/3-shell-script/exercicios/condicionais` com o comando `vim`. Em seguida, volte ao terminal anterior (ex. `Alt + F1`), conceda permissão de execução ao arquivo `uso_arquivo.sh`, execute-o e forneça o nome do arquivo que foi aberto no outro terminal. Verifique o retorno do script. 
 
 ---
 
