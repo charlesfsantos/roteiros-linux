@@ -178,7 +178,6 @@ $TTL 604800
 @       IN      NS      internal-server.miguel-judson.local.
 2       IN      PTR     internal-server.miguel-judson.local.
 1       IN      PTR     firewall.miguel-judson.local.
-3       IN      PTR     vm3.miguel-judson.local.
 ```
 
 - **Explicação:** Os registros PTR são para resolução reversa. 
