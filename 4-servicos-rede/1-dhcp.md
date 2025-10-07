@@ -146,7 +146,7 @@ $ systemctl restart kea-dhcp4-server
 
 10. Verifique o status do serviço:
 ```
-$ systemctl status isc-kea-dhcp4-server
+$ systemctl status kea-dhcp4-server
 ```
 11. Se houver erros, cheque logs com `journalctl -u isc-kea-dhcp4-server` e siga as instruções de atenção do passo 8.
 
