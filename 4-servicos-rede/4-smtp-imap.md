@@ -151,7 +151,7 @@ O registro **MX** indica qual servidor é responsável pelo recebimento de e-mai
    - **Nome:** Gabriel Fernandes  
    - **E-mail:** `gabriel@gabriel-fernandes.local`  
    - **Senha:** ifrn  
-   - Clique em **Configuração Manual**
+   - Clique em **Done**
 
    Se a configuração estiver correta, o Thunderbird irá exibir as configurações principais do IMAP com o endereço do servidor configurado. 
    
