@@ -6,7 +6,7 @@ Nesta prática, realizaremos a configuração do serviço de e-mail em `internal
 - As três VMs (firewall, internal-server e internal-client) estão configuradas no seu domínio (exemplo: `gabriel-fernandes.local`).  
 - O `internal-server` já possui serviços como **Kea DHCP** e **Bind9 DNS** instalados e funcionando.  
 - As demais práticas anteriores devem ter sido concluídas com sucesso. 
-- Faça o *backup* da máquina `internal-server` para esta prática. 
+- Faça o *snapshot* da máquina `internal-server` para esta prática. 
 - Verifique a conexão com a Internet a partir do `firewall` usando `elinks`. 
 
 ---
