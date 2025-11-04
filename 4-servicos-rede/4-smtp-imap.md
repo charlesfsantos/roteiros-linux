@@ -1,4 +1,4 @@
-# Prática Guiada: Configuração de Servidor SMTP-IMAP em Debian
+# Configuração de Servidor SMTP-IMAP
 
 Nesta prática, realizaremos a configuração do serviço de e-mail em `internal-server`. Para isso, será configurado o Postfix como servidor **SMTP** e o Dovecot como servidor **IMAP**, pois atuam, respectivamente, no envio e recebimento de correios eletrônicos.  
 
