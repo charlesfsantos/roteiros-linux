@@ -1,4 +1,4 @@
-# Configuração de Servidor SMTP-IMAP
+# Configuração do serviço de e-mail com os protocolos SMTP-IMAP
 
 Nesta prática, realizaremos a configuração do serviço de e-mail em `internal-server`. Para isso, será configurado o Postfix como servidor **SMTP** e o Dovecot como servidor **IMAP**, pois atuam, respectivamente, no envio e recebimento de correios eletrônicos.  
 
