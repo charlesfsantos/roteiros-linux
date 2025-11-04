@@ -90,7 +90,7 @@ O registro **MX** indica qual servidor é responsável pelo recebimento de e-mai
 
 7. Teste a resolução DNS localmente:
    ```bash
-   dig @1localhost MX gabriel-fernandes.local
+   dig @localhost MX gabriel-fernandes.local
    dig @localhost mail.gabriel-fernandes.local
    ```
    > Você deve ver o registro MX apontando para `mail.gabriel-fernandes.local` e o A com o IP correto.
