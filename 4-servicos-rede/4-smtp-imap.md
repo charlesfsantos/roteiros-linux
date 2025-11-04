@@ -123,6 +123,7 @@ O registro **MX** indica qual servidor é responsável pelo recebimento de e-mai
 
 4. Teste envio local para um usuário já cadastrado no sistema:
    ```bash
+   adduser gabriel
    echo "Teste SMTP local" | mail -s "Assunto Teste" gabriel@gabriel-fernandes.local
    ```
    ````text
